@@ -1,5 +1,6 @@
 FROM python:3.9.23-alpine3.22 AS builder
 WORKDIR /opt/server
+RUN dnf install python3 gcc python3-devel -y
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 COPY *.py .
