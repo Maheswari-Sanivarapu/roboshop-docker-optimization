@@ -19,6 +19,7 @@ services:
     container_name: catalogue
     depends_on:
     - mongodb
+
   frontend:
     image: maheswari450/frontend-optimize:v1
     container_name: frontend
