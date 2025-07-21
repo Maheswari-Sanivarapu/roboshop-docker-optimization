@@ -6,6 +6,7 @@ networks:
 volumes:
   mongodb:
   redis:
+  mysql:
 services:
   mongodb:
     image: maheswari450/mongodb-optimise:v1
@@ -34,6 +35,17 @@ services:
     depends_on:
     - redis
     - catalogue
+  mysql:
+    image: maheswari450/mysql-optimise:v1
+    container_name: mysql
+    volumes:
+    - mysql:/var/lib/mysql
+  shipping:
+    image: maheswari450/shipping-optimise:v1
+    container_name: shipping
+    depends_on:
+    - mysql
+    - cart
   frontend:
     image: maheswari450/frontend-optimise:v1
     container_name: frontend
@@ -43,3 +55,4 @@ services:
     - catalogue
     - user
     - cart
+    - shipping
