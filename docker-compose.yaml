@@ -8,12 +8,12 @@ volumes:
   redis:
 services:
   mongodb:
-    image: maheswari450/mongodb-optimize:v1
+    image: maheswari450/mongodb-optimise:v1
     container_name: mongodb
     volumes:
     - mongodb:/data/db
   catalogue:
-    image: maheswari450/catalogue-optimize:v1
+    image: maheswari450/catalogue-optimise:v1
     container_name: catalogue
     depends_on:
     - mongodb
@@ -23,13 +23,13 @@ services:
     volumes:
     - redis:/data
   user:
-    image: maheswari450/user-optimize:v1
+    image: maheswari450/user-optimise:v1
     container_name: user
     depends_on:
     - mongodb
     - redis
   frontend:
-    image: maheswari450/frontend-optimize:v1
+    image: maheswari450/frontend-optimise:v1
     container_name: frontend
     ports:
     - 80:80
