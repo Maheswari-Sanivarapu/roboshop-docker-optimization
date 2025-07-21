@@ -1,6 +1,8 @@
 FROM python:3.9.23-alpine3.22 AS builder
 WORKDIR /opt/server
-RUN dnf install gcc python3-devel -y
+RUN apk add --no-cache \
+    gcc \
+    python3-dev
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 COPY *.py .
