@@ -1,10 +1,10 @@
 FROM python:3.9.23-alpine3.22 AS builder
 WORKDIR /opt/server
 RUN apk add --no-cache \
-    gcc \
-    python3-dev
+    python3-dev \
+    gcc
 COPY requirements.txt .
-RUN pip3 install -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 COPY *.py .
 COPY payment.ini .
 
