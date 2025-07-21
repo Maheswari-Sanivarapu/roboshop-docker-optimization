@@ -28,6 +28,12 @@ services:
     depends_on:
     - mongodb
     - redis
+  cart:
+    image: maheswari450/cart-optimise:v1
+    container_name: cart
+    depends_on:
+    - redis
+    - catalogue
   frontend:
     image: maheswari450/frontend-optimise:v1
     container_name: frontend
@@ -36,3 +42,4 @@ services:
     depends_on:
     - catalogue
     - user
+    - cart
