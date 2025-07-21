@@ -1,7 +1,11 @@
 FROM python:3.9.23-alpine3.22 AS builder
 WORKDIR /opt/server
 RUN apk add --no-cache \
+    build-base \
+    linux-headers \
+    musl-dev \
     python3-dev \
+    libffi-dev \
     gcc
 COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
