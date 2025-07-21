@@ -1,9 +1,9 @@
 FROM python:3.9.23-alpine3.22 AS builder
 WORKDIR /opt/server
 COPY requirements.txt .
+RUN pip3 install -r requirements.txt
 COPY *.py .
 COPY payment.ini .
-RUN pip3 install -r requirements.txt
 
 
 FROM python:3.9.23-alpine3.22
