@@ -16,7 +16,17 @@ services:
     container_name: catalogue
     depends_on:
     - mongodb
-
+  redis:
+    image: redis:7.0
+    container_name: redis
+    volumes:
+    - redis:/data
+  user:
+    image: maheswari450/user-optimize:v1
+    container_name: user
+    depends_on:
+    - mongodb
+    - redis
   frontend:
     image: maheswari450/frontend-optimize:v1
     container_name: frontend
@@ -24,3 +34,4 @@ services:
     - 80:80
     depends_on:
     - catalogue
+    - user
