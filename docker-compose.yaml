@@ -5,6 +5,7 @@ networks:
     #external: true #I created network already using docker network create roboshop
 volumes:
   mongodb:
+  redis:
 services:
   mongodb:
     image: maheswari450/mongodb-optimize:v1
