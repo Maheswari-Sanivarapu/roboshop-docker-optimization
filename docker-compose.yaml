@@ -7,6 +7,7 @@ volumes:
   mongodb:
   redis:
   mysql:
+  rabbitmq:
 services:
   mongodb:
     image: maheswari450/mongodb-optimise:v1
