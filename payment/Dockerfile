@@ -16,6 +16,7 @@ COPY payment.ini .
 FROM python:3.9.23-alpine3.22
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 COPY --from=builder /opt/server /opt/server
+USER roboshop
 CMD ["uwsgi", "--ini", "payment.ini"]
 
 
