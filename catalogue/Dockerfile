@@ -15,6 +15,10 @@
 # CMD ["node", "server.js"]
 
 FROM node:20-alpine3.21
+
+COPY package.json .
+COPY *.js .
+RUN npm install
 ENV MONGO=true \
     MONGO_URL="mongodb://mongodb:27017/catalogue"
 WORKDIR /opt/server
